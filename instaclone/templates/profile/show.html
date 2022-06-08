@@ -1,15 +1,17 @@
 {% extends 'instaclone/base.html' %}
 {% block content %}
+{% for profile in profile %}
 <h5>
-    name{{profile.name}}    
+    Name: {{profile.name}}    
 </h5>
 <h5>
-    bio{{profile.bio}}
+    Bio: {{profile.bio}}
 </h5>
 <h5>
-    avatar<img src="{{profile.avatar.url}}">
+    Avatar: <img src="{{profile.avatar.url}}" style="border-radius: 80%; width:50%;">
 </h5>
 
+{% endfor %}
 <h1 style="text-align: center;"><a href="/edit-profile">Edit Profile</a></h1>
 
 {% endblock %}

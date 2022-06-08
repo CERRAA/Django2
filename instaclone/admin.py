@@ -1,12 +1,12 @@
 
 from django.contrib import admin
-from .models import Image, Comment, Post
+from .models import Image, Comment, Post,Profile
 
 # admin.site.register(Profile)
 admin.site.register(Image)
 admin.site.register(Comment)
 admin.site.register(Post)
-
+admin.site.register(Profile)
 
 
 class CommentAdmin(admin.ModelAdmin):

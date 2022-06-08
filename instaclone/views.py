@@ -50,23 +50,24 @@ def register(request):
         
 
 def editProfile(request):
-    form = ProfileForm(initial={'name':request.user.username, 'bio':'test'})
 
-   
+    form = ProfileForm()
+
     return render(request, 'profile/edit.html', {'form': form})      
 
 
 def profile(request):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
-        Profile.objects.filter(id__gt=1)
        
         if form.is_valid():
             avatar=form.cleaned_data['avatar']   
             name=form.cleaned_data['name']  
             bio=form.cleaned_data['bio']
             author=request.user   
-            profile=Profile(avatar,name,bio,author) 
+            profile=Profile.objects.all()
+            
+    
 
         return render(request, 'profile/show.html', {'form': form, 'profile':profile})
 

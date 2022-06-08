@@ -18,13 +18,13 @@ from django.utils import timezone
 
 class Profile(models.Model):
     avatar = CloudinaryField('image',null=True)
-    author = models.ForeignKey(User, on_delete = models.CASCADE)
+    author = models.ForeignKey(User, on_delete = models.CASCADE,null=True)
     name =models.CharField(max_length=50, blank=True)
     bio = models.TextField(null=True)
 
     
     def __str__(self):
-        return self.use
+        return self.name
 
     def save_profile(self):
         self.save()
