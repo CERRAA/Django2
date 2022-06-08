@@ -20,18 +20,18 @@
 
           <div>
             {% for comment in post.comments.all %}
-            <p>{{ comment }}</p> - <small>{{ post.created_on }}</small>
+            <p>{{ comment.comment }}</p> - <small>{{ post.created_on }}</small>
             {% empty %}
             <p>No comments yet</p>
             {% endfor %}
           </div>
 
           <div class="container">
-            <form method="POST"  action="comment"  class="form-group">
-             
+            <form method="post"  action="/comment"  class="form-group" novalidate>
+              {% csrf_token %}
               {{ comment_form.as_p}} 
-              <input type="hidden" name="post_id" value="{{ post.id }}">
-              <button>Submit</button>
+              <input type="submit" name="post_id" value="Submit">
+              
             </form>
           </div>
 

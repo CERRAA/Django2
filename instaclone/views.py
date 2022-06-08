@@ -87,7 +87,6 @@ def comment(request):
        
         if form.is_valid():
             comment = Comment()
-            comment.post = Post.objects.get(id=request.POST['post_id'])
             comment.author = request.user
             comment.comment = form.cleaned_data['comment']
                      
