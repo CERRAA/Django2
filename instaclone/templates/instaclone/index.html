@@ -19,7 +19,7 @@
           </div>
 
           <div>
-            {% for comment in post.comments.all %}
+            {% for comment in comment %}
             <p>{{ comment.comment }}</p> - <small>{{ post.created_on }}</small>
             {% empty %}
             <p>No comments yet</p>
@@ -31,7 +31,6 @@
               {% csrf_token %}
               {{ comment_form.as_p}} 
               <input type="submit" name="post_id" value="Submit">
-              
             </form>
           </div>
 

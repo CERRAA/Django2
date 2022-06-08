@@ -13,8 +13,9 @@ def index(request):
     image = Image.objects.all() 
     ctx = {'image':image}
     posts = Post.display()
-    comment_form = CommentForm
-    return render(request,'instaclone/index.html', {'comment_form': comment_form, "posts":posts, "ctx":ctx})
+    comment_form = CommentForm()
+    comment= Comment.objects.all()
+    return render(request,'instaclone/index.html', {'comment_form': comment_form, "posts":posts, "ctx":ctx,"comment":comment})
 
 def loadImage(request):
     if request.method == "POST":
