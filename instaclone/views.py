@@ -64,21 +64,13 @@ def profile(request):
             avatar=form.cleaned_data['avatar']   
             name=form.cleaned_data['name']  
             bio=form.cleaned_data['bio']
-            author=request.user          
-            profile=Profile(avatar,name,bio,author)
-            form.save()
+            author=request.user   
+            profile=Profile(avatar,name,bio,author) 
 
-            profile=Profile.objects.get(author= request.user.id)
-            messages.success(request, 'Profile has been updated')
-
-            return redirect ('/profile')
-        else:
-            return render(request, 'profile/edit.html', {'form': form})
+        return render(request, 'profile/show.html', {'form': form, 'profile':profile})
 
     else:
-        profile=Profile.objects.get(author= request.user)
-        
-        return render(request, 'profile/show.html', {'form': form, 'profile':profile})    
+       return render(request,'profile/show.html')
 
 
 
@@ -120,7 +112,7 @@ def post(request):
             post.title = form.cleaned_data['title']
             post.post = form.cleaned_data['post']
             post.author = current_user
-            post.picture = form.cleaned_data['image']
+            post.picture = form.cleaned_data['picture']
             post.save()
             messages.success(request, 'Posted')
 

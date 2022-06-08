@@ -161,9 +161,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 cloudinary.config( 
-  cloud_name = "dkcivjz16", 
-  api_key = "471245994175868", 
-  api_secret = "CAS-yrgWOfJHRN1IYD58181C8Sw", 
+  cloud_name = "angie-moringa", 
+  api_key = "727626372378399", 
+  api_secret = "jufghlIhiGCeQo8gEN24tGwpJUA", 
 )
 
 LOGIN_REDIRECT_URL='index'
