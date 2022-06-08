@@ -141,8 +141,6 @@ USE_TZ = True
 
 PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 STATIC_URL = 'static/'
-
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     
@@ -151,7 +149,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Default primary key field type

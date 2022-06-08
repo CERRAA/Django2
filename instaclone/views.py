@@ -67,8 +67,6 @@ def profile(request):
             author=request.user   
             profile=Profile.objects.all()
             
-    
-
         return render(request, 'profile/show.html', {'form': form, 'profile':profile})
 
     else:
