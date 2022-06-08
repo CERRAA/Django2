@@ -1,0 +1,52 @@
+{% extends 'instaclone/base.html' %}
+{% load static %}
+
+{% block content%}
+<div class="row"  style="margin-left: auto; margin-right: auto;" align="center">
+    {% for post in posts %}
+    <div class="col-md-6 mx-auto"> 
+
+          
+        <h5 class="card-title"> {{post.title}}</h5>
+          <img src="{{ post.picture.url }}" style='width: 400px;border-radius: 5px;;'class="card-img-top" alt="..." align="center"> <br><br>
+    </div>      
+  
+          <div> 
+            
+            <p class="card-text"> Caption: {{ post.post  }}  </p>
+            <p class="card-text"> Author: {{ post.author.username  }} </p> 
+            <p class="card-text"><small class="text-muted">Posted on: {{post.published_date}} </small></p>   
+          </div>
+
+          <div>
+            {% for comment in post.comments.all %}
+            <p>{{ comment }}</p> - <small>{{ post.created_on }}</small>
+            {% empty %}
+            <p>No comments yet</p>
+            {% endfor %}
+          </div>
+
+          <div class="container">
+            <form method="POST"  action="comment"  class="form-group">
+             
+              {{ comment_form.as_p}} 
+              <input type="hidden" name="post_id" value="{{ post.id }}">
+              <button>Submit</button>
+            </form>
+          </div>
+
+    {% endfor %}
+
+  </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
