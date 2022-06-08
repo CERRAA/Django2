@@ -1,3 +1,5 @@
+{% extends 'instaclone/base.html' %}
+{% block content %}
 <h5>
     name{{profile.name}}    
 </h5>
@@ -5,8 +7,9 @@
     bio{{profile.bio}}
 </h5>
 <h5>
-    avatar{{image.image.url}}
+    avatar<img src="{{profile.avatar.url}}">
 </h5>
 
+<h1 style="text-align: center;"><a href="/edit-profile">Edit Profile</a></h1>
 
-
+{% endblock %}
