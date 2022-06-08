@@ -56,19 +56,15 @@ def editProfile(request):
 
 
 def profile(request):
-    form = ProfileForm
-
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
         Profile.objects.filter(id__gt=1)
-        
-        profile=Profile.objects.get(author= request.user.id)
        
         if form.is_valid():
             avatar=form.cleaned_data['avatar']   
             name=form.cleaned_data['name']  
-            bio=form.cleaned_data['bio'] 
-            author=request.user            
+            bio=form.cleaned_data['bio']
+            author=request.user          
             profile=Profile(avatar,name,bio,author)
             form.save()
 
@@ -81,7 +77,7 @@ def profile(request):
 
     else:
         profile=Profile.objects.get(author= request.user)
-
+        
         return render(request, 'profile/show.html', {'form': form, 'profile':profile})    
 
 
